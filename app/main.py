@@ -17,15 +17,7 @@ async def home():
     return {"joke": "Yo mama"}
 
 @app.get("/jokes")
-async def send_joke(fmt: Optional[str] = None, count: Optional[int] = 1):
-  if fmt:
-    if count > 1 and count < no_of_jokes:
-      return [random.choice(all_jokes) for i in range(count)]
-    elif count == 1:
-       return random.choice(all_jokes)
-    else:
-      raise HTTPException(status_code=404, detail="Invalid count paramter")
-  
+async def send_joke(count: Optional[int] = 1):
   if count > 1 and count < no_of_jokes:
     return [{"joke": random.choice(all_jokes)} for i in range(count)]
   elif count == 1:
@@ -38,3 +30,12 @@ async def send_specific_joke(index: int):
     if index>no_of_jokes:
       raise HTTPException(status_code=404, detail="Index out of range")
     return {"joke": all_jokes[index]}
+
+@app.get("/search")
+async def search_joke(query: str):
+    if query == "Yo mama" or query == "yo mama":
+       return "DONT"  
+    
+    result = [joke for joke in all_jokes if query in joke.split()]
+    return {"results": result}
+
