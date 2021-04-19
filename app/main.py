@@ -28,10 +28,10 @@ async def send_joke(fmt: Optional[str] = None, count: Optional[int] = 1):
   
   if count > 1 and count < no_of_jokes:
     return [{"joke": random.choice(all_jokes)} for i in range(count)]
+  elif count == 1:
+    return {"joke": random.choice(all_jokes)}
   else:
     raise HTTPException(status_code=404, detail="Invalid count paramter")
-
-  return {"joke": random.choice(all_jokes)}
 
 @app.get("/jokes/{index}")
 async def send_specific_joke(index: int):
