@@ -1,7 +1,8 @@
-name: Unit Test Workflow
-
+name: Tests
 on:
   push:
+    branches: [ master ]
+  pull_request:
     branches: [ master ]
     
 jobs:
