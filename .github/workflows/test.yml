@@ -1,0 +1,39 @@
+name: Unit Test Workflow
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+
+  continuous-integration:
+    runs-on: ubuntu-latest
+
+    steps:      
+      - uses: actions/checkout@v2
+      
+      - name: Set up Python 
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+          architecture: x64
+          
+      - name: Install Python Virtual ENV
+        run: pip3 install virtualenv
+
+      - name:  Setup Virtual env
+        uses: actions/cache@v2
+        id: cache-venv
+        with:
+          path: venv
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
+
+      - name: Activate and Install Depencies into Virtual env
+        run: python -m venv venv && source venv/bin/activate &&
+          pip3 install -r requirements.txt
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+
+      - name: Activate venv and Run Test        
+        run: . venv/bin/activate && pytest app/test.py
