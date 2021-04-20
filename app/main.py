@@ -14,7 +14,7 @@ app = FastAPI()
 
 @app.get("/")
 async def home():
-    return {"joke": "Yo mama"}
+    return {"joke": "Yo momma"}
 
 @app.get("/jokes")
 async def send_joke(count: Optional[int] = 1):
@@ -33,8 +33,8 @@ async def send_specific_joke(index: int):
 
 @app.get("/search")
 async def search_joke(query: str):
-    if query == "Yo mama" or query == "yo mama":
-       return "DONT"  
+    if query == "Yo momma" or query == "yo momma":
+       return {"results": "DONT"}
     
     result = [joke for joke in all_jokes if query in joke.split()]
     return {"results": result}
