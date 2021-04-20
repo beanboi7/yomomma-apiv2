@@ -1,14 +1,14 @@
-# Yo momma API
+# yomomma-apiv2
 **An API that insults yo momma**
 <br />
 
-(Yo mommma API URL under development)
+(yo momma API URL under development)
 
 ## API Usage
 
 #### GET ```/```
 
-Returns yo mamma
+Returns "yo mama"
 
 #### GET ```/jokes```
 
@@ -21,7 +21,7 @@ To return a joke based on index in ```jokes.json``` file
 
 #### GET ```/search?query={query}```
 
-To return a list of quotes matching the query.
+To return a list of jokes matching the query.
 
 ## Development
 
@@ -31,7 +31,7 @@ To contribute to the list of jokes or code, list an issue or send a pull request
 
 ## Acknowledgements
 
-Thanks to [rdegges](https://github.com/rdegges) and [szymex](https://github.com/szymex73) for the jokes. Yo momma would be proud.
+Thanks to [rdegges](https://github.com/rdegges) and [szymex](https://github.com/szymex73) for the jokes. Yo momma would be proud, atleast now.
 
 ## License
 
