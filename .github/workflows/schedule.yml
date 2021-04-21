@@ -1,0 +1,17 @@
+name: Scheduled Heroku test
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check status of API
+        uses: lakuapik/gh-actions-http-status@v1
+        with:
+          sites: '["yomomma-api.herokuapp.com/","yomomma-api.herokuapp.com/jokes","yomomma-api.herokuapp.com/search?query=doctor"]'
+          expected: '[200]'
