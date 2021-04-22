@@ -14,4 +14,4 @@ jobs:
         uses: lakuapik/gh-actions-http-status@v1
         with:
           sites: '["yomomma-api.herokuapp.com/","yomomma-api.herokuapp.com/jokes","yomomma-api.herokuapp.com/search?query=doctor"]'
-          expected: '[200]'
+          expected: '[200,200,200]'
