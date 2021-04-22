@@ -61,7 +61,7 @@ def test_search():
     response = client.get(f"/search?query={query}")
     assert response.status_code == 200
     for search_result in response.json()["results"]:
-        assert query in search_result
+        assert query in search_result.lower()
 
 
 test_read_main()
