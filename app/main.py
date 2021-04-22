@@ -35,7 +35,7 @@ async def send_specific_joke(index: int):
 async def search_joke(query: str):
     if query == "Yo momma" or query == "yo momma":
        return {"results": "DONT"}
-    
-    result = [joke for joke in all_jokes if query in joke.split()]
+
+    result = [joke for joke in all_jokes if query in joke[:-1].lower().split()]
     return {"results": result}
 

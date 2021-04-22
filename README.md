@@ -1,6 +1,6 @@
 # yomomma-apiv2
-![example workflow](https://github.com/beanboi7/yomomma-apiv2/actions/workflows/test.yml/badge.svg)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)](https://yomomma-api.herokuapp.com/jokes)
+[![example workflow](https://github.com/beanboi7/yomomma-apiv2/actions/workflows/test.yml/badge.svg)](https://github.com/beanboi7/yomomma-apiv2/actions/workflows/test.yml)
+[![Heroku](https://github.com/beanboi7/yomomma-apiv2/actions/workflows/schedule.yml/badge.svg)](https://yomomma-api.herokuapp.com/jokes/)
 
 **An API that insults yo momma**
 <br />
