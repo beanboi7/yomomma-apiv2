@@ -39,5 +39,6 @@ jobs:
           pip3 install -r requirements.txt
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
-      - name: Activate venv and Run Test        
+      - name: Activate venv and Run Test
+        id: api-test        
         run: . venv/bin/activate && pytest app/test.py
