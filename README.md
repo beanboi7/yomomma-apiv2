@@ -30,7 +30,12 @@ To return a list of jokes matching the query.
 
 This API is based on [FastAPI](https://fastapi.tiangolo.com/) and currently hosted on [Heroku](https://www.heroku.com/)
 
-To contribute to the list of jokes or code, list an issue or send a pull request.
+To contribute, see [this](./CONTRIBUTING.md)
+
+Contributors:<br>
+<a href="https://github.com/beanboi7/yomomma-apiv2/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=beanboi7/yomomma-apiv2" />
+</a>
 
 ## Acknowledgements
 
