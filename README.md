@@ -1,6 +1,6 @@
 # yomomma-apiv2
-![example workflow](https://github.com/beanboi7/yomomma-apiv2/actions/workflows/test.yml/badge.svg)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)](https://yomomma-api.herokuapp.com/jokes)
+[![example workflow](https://github.com/beanboi7/yomomma-apiv2/actions/workflows/test.yml/badge.svg)](https://github.com/beanboi7/yomomma-apiv2/actions/workflows/test.yml)
+[![Heroku](https://byob.yarr.is/beanboi7/yomomma-apiv2/heroku/)](https://yomomma-api.herokuapp.com/jokes/)
 
 **An API that insults yo momma**
 <br />
@@ -30,7 +30,12 @@ To return a list of jokes matching the query.
 
 This API is based on [FastAPI](https://fastapi.tiangolo.com/) and currently hosted on [Heroku](https://www.heroku.com/)
 
-To contribute to the list of jokes or code, list an issue or send a pull request.
+To contribute, see [this](./CONTRIBUTING.md)
+
+Contributors:<br>
+<a href="https://github.com/beanboi7/yomomma-apiv2/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=beanboi7/yomomma-apiv2" />
+</a>
 
 ## Acknowledgements
 

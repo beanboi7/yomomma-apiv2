@@ -56,18 +56,24 @@ def test_index_out_of_range():
     response = client.get(f"/jokes/{random_index}")
     assert response.status_code == 404
 
+def test_index_out_of_range_negative():
+    random_index = -1 * random.randint(no_of_jokes,no_of_jokes*2)
+    response = client.get(f"/jokes/{random_index}")
+    assert response.status_code == 404
+
 def test_search():
     query = random.choice(random.choice(all_jokes).split())
     response = client.get(f"/search?query={query}")
     assert response.status_code == 200
     for search_result in response.json()["results"]:
-        assert query in search_result
+        assert query in search_result.lower()
 
-
-test_read_main()
-test_get_message_text()
-test_query_count()
-test_invalid_query_count()
-test_specific_index()
-test_index_out_of_range()
-test_search()
+if __name__ == "__main__":
+    test_read_main()
+    test_get_message_text()
+    test_query_count()
+    test_invalid_query_count()
+    test_specific_index()
+    test_index_out_of_range()
+    test_index_out_of_range_negative()
+    test_search()

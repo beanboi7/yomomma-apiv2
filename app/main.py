@@ -27,7 +27,7 @@ async def send_joke(count: Optional[int] = 1):
 
 @app.get("/jokes/{index}")
 async def send_specific_joke(index: int):
-    if index>no_of_jokes:
+    if index>no_of_jokes or index<0:
       raise HTTPException(status_code=404, detail="Index out of range")
     return {"joke": all_jokes[index]}
 
@@ -35,7 +35,7 @@ async def send_specific_joke(index: int):
 async def search_joke(query: str):
     if query == "Yo momma" or query == "yo momma":
        return {"results": "DONT"}
-    
-    result = [joke for joke in all_jokes if query in joke.split()]
+
+    result = [joke for joke in all_jokes if query in joke[:-1].lower().split()]
     return {"results": result}
 

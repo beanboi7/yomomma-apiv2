@@ -1,0 +1,41 @@
+name: Scheduled Heroku test
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check status of API
+        id: api-status
+        uses: lakuapik/gh-actions-http-status@v1
+        with:
+          sites: '["yomomma-api.herokuapp.com/","yomomma-api.herokuapp.com/jokes","yomomma-api.herokuapp.com/search?query=doctor"]'
+          expected: '[200,200,200]'
+        continue-on-error: true
+
+      - name: Update badges on success
+        uses: RubbaBoy/BYOB@v1.2.0
+        if: steps.api-status.outcome == 'success'
+        with:
+          NAME: heroku
+          LABEL: 'API Status'
+          ICON: 'https://simpleicons.vercel.app/heroku/c9c3e6'
+          STATUS: 'Deployed'
+          COLOR: purple
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+
+      - name: Update badges on fail
+        uses: RubbaBoy/BYOB@v1.2.0
+        if: steps.api-status.outcome != 'success'
+        with:
+          NAME: heroku
+          LABEL: 'API Status'
+          ICON: 'https://simpleicons.vercel.app/heroku/c9c3e6'
+          STATUS: 'Down'
+          COLOR: red
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
