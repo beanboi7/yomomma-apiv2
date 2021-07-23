@@ -6,15 +6,24 @@ from fastapi import FastAPI
 from fastapi.exceptions import HTTPException
 import json
 
+from starlette.requests import Request
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
+from slowapi.middleware import SlowAPIMiddleware
+
 with open('./jokes.json') as f:
     all_jokes = json.load(f)
 no_of_jokes = len(all_jokes)
 
+limiter = Limiter(key_func=get_remote_address, default_limits = ["5/minute"])
 app = FastAPI()
-
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.add_middleware(SlowAPIMiddleware)
 
 @app.get("/")
-async def home():
+async def home(request: Request):
     return {"joke": "Yo momma"}
 
 
