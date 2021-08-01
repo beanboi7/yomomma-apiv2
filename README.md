@@ -11,22 +11,9 @@ Can be seen listed on [Public-APIs](https://github.com/public-apis/public-apis#p
 
 ## API Usage
 
-#### GET ```/```
+For the complete documentation check out [here.](https://beanboi7.github.io/yomomma-apiv2/) 
 
-Returns "Yo momma".
-
-#### GET ```/jokes```
-
-Returns random joke(s)
-- Optional query parameter ```count``` to return count number of jokes.  Default count is 1<br/>Example: ```/jokes?count={count}```
-
-#### GET ```/jokes/{index}```
-
-To return a joke based on index in ```jokes.json``` file.
-
-#### GET ```/search?query={query}```
-
-To return a list of jokes matching the query.
+> P.S: API is rate limited to 5 calls/minute.
 
 ## Development
 
