@@ -1,0 +1,11 @@
+{
+    "name": "Yomomma API",
+    "description": "REST-API using FastAPI for Python that gives a 'yo momma' joke",
+    "version": "0.0.1",
+    "local": [
+        "boot"
+    ],
+    "paths": [
+        "lib"
+    ]
+}
