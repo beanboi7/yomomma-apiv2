@@ -4,7 +4,7 @@ from random import choice
 from typing import Optional
 from fastapi import FastAPI
 from fastapi.exceptions import HTTPException
-import json
+from json import load
 
 from starlette.requests import Request
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -13,7 +13,7 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
 
 with open('./jokes.json') as f:
-    all_jokes = json.load(f)
+    all_jokes = load(f)
 
 limiter = Limiter(key_func=get_remote_address, default_limits = ["5/minute"])
 app = FastAPI()
