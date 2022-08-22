@@ -36,10 +36,3 @@ For invalid index parameter:
 ```{
   "detail": "Invalid index paramter"
 }```
-
-If you put query as "yo momma":
-
-```Status: 200 OK```
-```{
-  "results": "DONT"
-}```
