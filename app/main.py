@@ -16,9 +16,9 @@ from fastapi.middleware.cors import CORSMiddleware
 with open('./jokes.json') as f:
     all_jokes = load(f)
 
-limiter = Limiter(key_func=get_remote_address, default_limits = ["5/minute"])
+limiter = Limiter(key_func=get_remote_address, default_limits = ["50/minute"])
 app = FastAPI()
-# app.state.limiter = limiter
+app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(SlowAPIMiddleware)
 app.add_middleware(
