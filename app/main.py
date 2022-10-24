@@ -35,7 +35,7 @@ async def home():
 @app.get("/jokes")
 async def send_joke(count: Optional[int] = 1):
     if count > 1 and count < len(all_jokes):
-        return [{"joke": choice(all_jokes)} for i in range(count)]
+        return [{"joke": choice(all_jokes)} for _ in range(count)]
     elif count == 1:
         return {"joke": choice(all_jokes)}
     else:
