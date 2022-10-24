@@ -18,7 +18,7 @@ with open('./jokes.json') as f:
 
 limiter = Limiter(key_func=get_remote_address, default_limits = ["5/minute"])
 app = FastAPI()
-app.state.limiter = limiter
+# app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(SlowAPIMiddleware)
 app.add_middleware(
